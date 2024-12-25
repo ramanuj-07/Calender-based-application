@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Calendar from "./components/Calendar";
 import Notifications from "./components/Notifications";
 import MethodManager from './components/MethodManager';
+import Reports from './components/Reports';
 
 function App() {
   const [companies, setCompanies] = useState([]);
@@ -59,6 +60,12 @@ function App() {
           onUpdateCommunications={handleUpdateCommunications} />
       </section>
 
+         {/* Reports Section */}
+         <section className="mb-8">
+        <h2 className="text-xl font-bold mb-4">Reports and Analytics</h2>
+        <Reports communications={communications} methods={methods} />
+      </section>
+      
       {/* Calendar Section */}
       <section>
         <h2 className="text-xl font-bold mb-4">Calendar</h2>
