@@ -1,22 +1,31 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 
-const MethodManager = ({methods, onAddMethod}) => {
-    const [method, setMethod] = useState({ name: "", description: "", sequence: "", mandatory: false });
-    const handleChange = (e) => {
-        const { name, description, sequence, mandatory } = e.target;
-        setMethod({ ...method, [name]: type === "checkbox" ? checked : value });
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (method.name && method.description && method.sequence) {
-            onAddMethod({ ...method, sequence: Number(method.sequence) });
-            setMethod({ name: "", description: "", sequence: "", mandatory: false });
-        }
-    };
+const MethodManager = ({ methods, onAddMethod }) => {
+  const [method, setMethod] = useState({
+    name: "",
+    description: "",
+    sequence: "",
+    mandatory: false,
+  });
+
+  const handleChange = (e) => {
+    const { name,value, type, checked} = e.target;
+    setMethod({ ...method, [name]: type === "checkbox" ? checked : value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (method.name && method.description && method.sequence) {
+      onAddMethod({ ...method, sequence: Number(method.sequence) });
+      setMethod({ name: "", description: "", sequence: "", mandatory: false });
+    }
+  };
 
   return (
-   <div>
-      <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded space-y-4">
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="p-4 bg-gray-100 rounded space-y-4"
+      >
         <div>
           <label className="block font-medium">Name:</label>
           <input
@@ -81,6 +90,6 @@ const MethodManager = ({methods, onAddMethod}) => {
       </ul>
     </div>
   );
-}
+};
 
 export default MethodManager;
