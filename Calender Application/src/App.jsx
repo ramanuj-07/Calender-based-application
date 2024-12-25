@@ -23,7 +23,9 @@ function App() {
   const handleAddMethod = (method) => {
     setMethods((prev) => [...prev, { id: Date.now(), ...method }]);
   };
-
+  const handleUpdateCommunications = (companyId, newCommunication) => {
+    setCommunications((prev) => ({...prev, [companyId] : prev[companyId] ? [newCommunication, ...prev[companyId]].slice(0, 5) : [newCommunication]}));
+};
 
   return (
     <div className="container mx-auto p-4">
@@ -51,7 +53,10 @@ function App() {
       {/* Dashboard Section */}
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-        <Dashboard companies={companies} />
+        <Dashboard companies={companies}
+          communications={communications}
+          methods={methods}
+          onUpdateCommunications={handleUpdateCommunications} />
       </section>
 
       {/* Calendar Section */}
