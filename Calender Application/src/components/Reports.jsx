@@ -1,21 +1,36 @@
 import React, { useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
 import { saveAs } from "file-saver";
-
-
-const Reports = () => {
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import { jsPDF } from "jspdf";
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement // This is for Pie chart
+);
+  
+const Reports = ({ communications,methods }) => {
+    
     const [selectedCompany, setSelectedCompany] = useState(null);
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
   
     const generateFrequencyData = () => {
+        if (!communications || Object.keys(communications).length === 0) {
+          return {};
+        }
       const frequency = {};
       Object.values(communications).forEach((comms) => {
         comms.forEach(({ type }) => {
           frequency[type] = (frequency[type] || 0) + 1;
         });
       });
-      return frequency;
+        return frequency;
+        
     };
   
     const frequencyData = generateFrequencyData();
@@ -28,7 +43,27 @@ const Reports = () => {
       const encodedUri = encodeURI(csvContent);
       saveAs(encodedUri, "communication_report.csv");
     };
-  
+
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    
+    // Title
+    doc.setFontSize(18);
+    doc.text("Communication Frequency Report", 20, 20);
+    
+    // Content
+    let y = 30; // starting Y position for the content
+    
+    doc.setFontSize(12);
+    Object.entries(frequencyData).forEach(([type, count], index) => {
+      doc.text(`${type}: ${count}`, 20, y);
+      y += 10;
+    });
+
+    doc.save("communication_report.pdf");
+  };
+    
     return (
       <div>
         <h3 className="font-bold text-lg mb-4">Communication Frequency Report</h3>
