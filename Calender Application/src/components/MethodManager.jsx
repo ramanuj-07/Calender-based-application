@@ -9,7 +9,7 @@ const MethodManager = ({ methods, onAddMethod }) => {
   });
 
   const handleChange = (e) => {
-    const { name,value, type, checked} = e.target;
+    const { name, value, type, checked} = e.target;
     setMethod({ ...method, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
