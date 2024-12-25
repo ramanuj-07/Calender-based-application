@@ -97,12 +97,23 @@ const Reports = ({ communications,methods }) => {
         />
   
         <h3 className="font-bold text-lg mb-4">Downloadable Reports</h3>
+        <div className="flex space-x-4">
+        {/* Button to download CSV */}
         <button
           onClick={downloadCSV}
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
-          Export CSV
+          Export as CSV
         </button>
+
+        {/* Button to download PDF */}
+        <button
+          onClick={downloadPDF}
+          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+        >
+          Export as PDF
+        </button>
+      </div>
       </div>
     );
 }
