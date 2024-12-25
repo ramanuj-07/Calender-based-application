@@ -14,7 +14,7 @@ const CompanyForm = ({ onSubmit }) => {
     onSubmit(company);
     setCompany({});
   };
-
+// Company Entry
   return (
     <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded space-y-4">
       <div>
@@ -91,7 +91,12 @@ const CompanyForm = ({ onSubmit }) => {
           onChange={handleChange}
           className="w-full border p-2 rounded"
         />
-      </div>
+          </div>
+          <button
+              type="submit"
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >Add Company
+          </button>
     </form>
   );
 };
