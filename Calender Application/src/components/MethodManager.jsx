@@ -82,7 +82,7 @@ const MethodManager = ({ methods, onAddMethod }) => {
               className="p-2 border rounded bg-gray-50 flex justify-between"
             >
               <span>
-                {method.sequence}. {method.name} ({method.description}) -
+                {method.sequence}. {method.name} ({method.description}) - {" "}
                 {method.mandatory ? " Mandatory" : " Optional"}
               </span>
             </li>
