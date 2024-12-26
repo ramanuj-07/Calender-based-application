@@ -2,7 +2,15 @@ import React from "react";
 import { useState } from "react";
 
 const CompanyForm = ({ onSubmit }) => {
-  const [company, setCompany] = useState({});
+    const [company, setCompany] = useState({
+        name: "",
+        location: "",
+        linkdinProfile: "",
+        emails: "",
+        phoneNumber: "",
+        comments: "",
+        communicationPeriodicity: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -10,9 +18,21 @@ const CompanyForm = ({ onSubmit }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(company);
-    setCompany({});
+      e.preventDefault();
+      if (company.name && company.location && company.emails && company.phoneNumber) {
+          onSubmit(company);
+           setCompany({
+        name: "",
+        location: "",
+        linkdinProfile: "",
+        emails: "",
+        phoneNumber: "",
+        comments: "",
+        communicationPeriodicity: "",
+      }); 
+      } else {
+          alert("Please complete all required fields");
+      } 
   };
 // Company Entry
   return (

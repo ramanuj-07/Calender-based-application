@@ -18,6 +18,9 @@ const MethodManager = ({ methods, onAddMethod }) => {
       onAddMethod({ ...method, sequence: Number(method.sequence) });
       setMethod({ name: "", description: "", sequence: "", mandatory: false });
     }
+    else {
+        alert("Please complete all fileds");
+      }
   };
 
   return (

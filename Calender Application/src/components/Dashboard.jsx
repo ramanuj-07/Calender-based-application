@@ -72,7 +72,7 @@ const Dashboard = ({
                   )) || "N/A"}
                 </td>
                 <td className="border px-4 py-2">
-                  {methods[0]?.name || "N/A"} -{" "}
+                  {methods[0]?.name || "N/A"} -
                   {new Date().toISOString().split("T")[0]}
                 </td>
                 <td className="border px-4 py-2">
