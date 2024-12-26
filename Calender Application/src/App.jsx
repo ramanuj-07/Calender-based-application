@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 import CompanyForm from "./components/CompanyForm";
 import Dashboard from "./components/Dashboard";
@@ -17,6 +17,28 @@ function App() {
     { id: 4, name: "Phone Call", description: "Call the company", sequence: 4, mandatory: false },
     { id: 5, name: "Other", description: "Other forms of communication", sequence: 5, mandatory: false }
   ]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const companiesResponse = await fetch("/data/companies.json");
+        const companiesData = await companiesResponse.json();
+        setCompanies(companiesData);
+
+        const communicationsResponse = await fetch("/data/communications.json");
+        const communicationsData = await communicationsResponse.json();
+        setCommunications(communicationsData);
+
+        const methodsResponse = await fetch("/data/methods.json");
+        const methodsData = await methodsResponse.json();
+        setMethods(methodsData);
+      } catch (error) {
+        console.error("Failed to fetch data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleAddCompany = (company) => {
     setCompanies((prev) => [...prev, { id: Date.now(), ...company }]);
@@ -65,7 +87,7 @@ function App() {
         <h2 className="text-xl font-bold mb-4">Reports and Analytics</h2>
         <Reports communications={communications} methods={methods} />
       </section>
-      
+
       {/* Calendar Section */}
       <section>
         <h2 className="text-xl font-bold mb-4">Calendar</h2>
