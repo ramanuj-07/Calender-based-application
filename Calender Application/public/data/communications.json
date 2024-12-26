@@ -1,0 +1,31 @@
+{
+"communications": {
+    "1": [
+      { "type": "Email", "date": "2024-12-05", "notes": "Proposal sent" },
+      { "type": "Phone Call", "date": "2024-12-01", "notes": "Initial discussion" }
+    ],
+    "2": [
+      { "type": "LinkedIn Post", "date": "2024-12-03", "notes": "Shared project overview" },
+      { "type": "Email", "date": "2024-12-02", "notes": "Follow-up discussion" }
+    ],
+    "3": [],
+    "4": [
+      { "type": "Email", "date": "2024-12-01", "notes": "Introduced company services" }
+    ],
+    "5": [
+      { "type": "LinkedIn Message", "date": "2024-11-30", "notes": "Followed up for response" }
+    ],
+    "6": [
+      { "type": "Phone Call", "date": "2024-12-01", "notes": "Discussed requirements" }
+    ],
+    "7": [],
+    "8": [],
+    "9": [
+      { "type": "LinkedIn Post", "date": "2024-12-02", "notes": "Posted partnership news" }
+    ],
+    "10": [
+      { "type": "Email", "date": "2024-12-01", "notes": "Shared product details" },
+      { "type": "Phone Call", "date": "2024-12-03", "notes": "Reviewed pricing" }
+    ]
+  }
+}

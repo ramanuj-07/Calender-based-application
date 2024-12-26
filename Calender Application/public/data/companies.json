@@ -1,0 +1,24 @@
+{
+    "companies": [
+      { "id": 1, "name": "Tech Solutions Inc", "location": "New York", "emails": "info@techsolutions.com", "overdue": true, "dueToday": false },
+      { "id": 2, "name": "Global Innovators", "location": "San Francisco", "emails": "contact@globalinnovators.com", "overdue": false, "dueToday": true },
+      { "id": 3, "name": "Alpha Ventures", "location": "Chicago", "emails": "admin@alphaventures.com", "overdue": false, "dueToday": false },
+      { "id": 4, "name": "NextGen Enterprises", "location": "Seattle", "emails": "hello@nextgen.com", "overdue": true, "dueToday": false },
+      { "id": 5, "name": "Horizon Tech", "location": "Austin", "emails": "support@horizontechnologies.com", "overdue": true, "dueToday": false },
+      { "id": 6, "name": "Infinite Loop Ltd", "location": "Boston", "emails": "info@infiniteloop.com", "overdue": false, "dueToday": true },
+      { "id": 7, "name": "Pixel Perfect", "location": "Denver", "emails": "support@pixelperfect.com", "overdue": false, "dueToday": false },
+      { "id": 8, "name": "Future Works", "location": "Los Angeles", "emails": "contact@futureworks.com", "overdue": true, "dueToday": false },
+      { "id": 9, "name": "Dynamic Softwares", "location": "Miami", "emails": "hello@dynamicsoftwares.com", "overdue": false, "dueToday": true },
+      { "id": 10, "name": "Quantum Synergy", "location": "Houston", "emails": "admin@quantumsynergy.com", "overdue": true, "dueToday": false },
+      { "id": 11, "name": "Neural Networks LLC", "location": "Phoenix", "emails": "info@neuralnetworks.com", "overdue": true, "dueToday": false },
+      { "id": 12, "name": "Cyber Dynamics", "location": "San Diego", "emails": "contact@cyberdynamics.com", "overdue": false, "dueToday": false },
+      { "id": 13, "name": "AI Hub", "location": "San Francisco", "emails": "support@aihub.com", "overdue": false, "dueToday": true },
+      { "id": 14, "name": "Data Bridge", "location": "Chicago", "emails": "hello@databridge.com", "overdue": true, "dueToday": false },
+      { "id": 15, "name": "Core Industries", "location": "Atlanta", "emails": "admin@coreindustries.com", "overdue": true, "dueToday": false },
+      { "id": 16, "name": "Techsmith Ltd", "location": "New York", "emails": "info@techsmith.com", "overdue": false, "dueToday": true },
+      { "id": 17, "name": "Byte Labs", "location": "Dallas", "emails": "support@bytelabs.com", "overdue": false, "dueToday": true },
+      { "id": 18, "name": "Vision AI", "location": "Austin", "emails": "contact@visionai.com", "overdue": true, "dueToday": false },
+      { "id": 19, "name": "MindTech", "location": "Seattle", "emails": "hello@mindtech.com", "overdue": false, "dueToday": false },
+      { "id": 20, "name": "OpenData Inc", "location": "San Jose", "emails": "info@opendata.com", "overdue": false, "dueToday": false }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+"methods": [
+    { "id": 1, "name": "LinkedIn Post", "description": "Post on LinkedIn", "sequence": 1, "mandatory": true },
+    { "id": 2, "name": "LinkedIn Message", "description": "Message via LinkedIn", "sequence": 2, "mandatory": true },
+    { "id": 3, "name": "Email", "description": "Send an email", "sequence": 3, "mandatory": true },
+    { "id": 4, "name": "Phone Call", "description": "Call the company", "sequence": 4, "mandatory": false },
+    { "id": 5, "name": "Other", "description": "Other forms of communication", "sequence": 5, "mandatory": false }
+  ]
+}
