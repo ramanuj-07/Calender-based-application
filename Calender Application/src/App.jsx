@@ -7,6 +7,7 @@ import Notifications from "./components/Notifications";
 import MethodManager from './components/MethodManager';
 import Reports from './components/Reports';
 
+
 function App() {
   const [companies, setCompanies] = useState([]);
   const [communications, setCommunications] = useState({});
