@@ -98,7 +98,8 @@ const Reports = ({ communications,methods }) => {
                 backgroundColor: ["#4CAF50", "#2196F3", "#FFC107", "#F44336", "#9C27B0"],
               },
             ],
-          }}
+                }}
+                style={{ width: "50px", height: "10px" }} // Adjust size here
         />
   
         <h3 className="font-bold text-lg mb-4">Downloadable Reports</h3>
