@@ -23,15 +23,20 @@ const Reports = ({ communications,methods }) => {
         if (!communications || Object.keys(communications).length === 0) {
           return {};
         }
-      const frequency = {};
-      Object.values(communications).forEach((comms) => {
-        comms.forEach(({ type }) => {
-          frequency[type] = (frequency[type] || 0) + 1;
+      
+        const frequency = {};
+        Object.entries(communications).forEach(([key, comms]) => {
+          if (Array.isArray(comms)) { // Safeguard to ensure comms is an array
+            comms.forEach(({ type }) => {
+              frequency[type] = (frequency[type] || 0) + 1;
+            });
+          } else {
+            console.warn(`Skipping key ${key}: Value is not an array`, comms);
+          }
         });
-      });
         return frequency;
-        
-    };
+      };
+      
   
     const frequencyData = generateFrequencyData();
   
