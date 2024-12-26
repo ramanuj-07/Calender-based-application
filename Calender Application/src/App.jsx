@@ -10,35 +10,51 @@ import Reports from './components/Reports';
 function App() {
   const [companies, setCompanies] = useState([]);
   const [communications, setCommunications] = useState({});
-  const [methods, setMethods] = useState([
-    { id: 1, name: "LinkedIn Post", description: "Post on LinkedIn", sequence: 1, mandatory: true },
-    { id: 2, name: "LinkedIn Message", description: "Message via LinkedIn", sequence: 2, mandatory: true },
-    { id: 3, name: "Email", description: "Send an email", sequence: 3, mandatory: true },
-    { id: 4, name: "Phone Call", description: "Call the company", sequence: 4, mandatory: false },
-    { id: 5, name: "Other", description: "Other forms of communication", sequence: 5, mandatory: false }
-  ]);
+  const [methods, setMethods] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const companiesResponse = await fetch("/data/companies.json");
         const companiesData = await companiesResponse.json();
-        setCompanies(companiesData);
-
+  
+        if (companiesData.companies && Array.isArray(companiesData.companies)) {
+          setCompanies(companiesData.companies); // Access nested 'companies' key
+        } else {
+          console.error("Invalid data format: companies.json should contain a 'companies' array.");
+          setCompanies([]); // Fallback to an empty array
+        }
+  
         const communicationsResponse = await fetch("/data/communications.json");
         const communicationsData = await communicationsResponse.json();
-        setCommunications(communicationsData);
-
+        // setCommunications(communicationsData); // Ensure object structure
+        if (communicationsData && typeof communicationsData === "object") {
+          Object.entries(communicationsData).forEach(([key, value]) => {
+            if (!Array.isArray(value)) {
+              console.error(`Key ${key} in communications is not an array. Value:`, value);
+            }
+          });
+          setCommunications(communicationsData);
+        } else {
+          console.error("Invalid communications format. Expected an object:", communicationsData);
+          setCommunications({});
+        }
+        
+  
         const methodsResponse = await fetch("/data/methods.json");
         const methodsData = await methodsResponse.json();
-        setMethods(methodsData);
+        setMethods(Array.isArray(methodsData) ? methodsData : []); // Ensure array structure
       } catch (error) {
         console.error("Failed to fetch data: ", error);
+        setCompanies([]);
+        setCommunications({});
+        setMethods([]);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   const handleAddCompany = (company) => {
     setCompanies((prev) => [...prev, { id: Date.now(), ...company }]);
