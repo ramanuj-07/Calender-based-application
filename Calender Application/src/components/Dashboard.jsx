@@ -60,7 +60,7 @@ const Dashboard = ({
               >
                 <td className="border px-4 py-2">{company.name}</td>
                 <td className="border px-4 py-2">
-                  {communications[company.id]?.map((comm, index) => (
+                  {(communications[company.id] || []).map((comm, index) => (
                     <div key={index} className="relative group">
                       <span>
                         {comm.type} - {comm.date}
